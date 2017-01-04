@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logger.JS</title>
+</head>
+<body>
+
+<script src="loggerjs/logger.js"></script>
+
+<script>
+
+    // types
+    Logger.log('Test with log');
+    Logger.warn('Test with warn');
+    Logger.info('Test with info');
+    Logger.error('Test with error');
+
+    // send params
+    Logger.log('One param', 'String');
+    Logger.log('Many params', 'String', 1, true, {test: 'logger'}, function () {});
+
+    // create and use namespace
+    Logger.ns('MY_MODULE').log('myFunction1');
+    Logger.ns('MY_MODULE').log('myFunction2');
+    Logger.ns('MY_MODULE').log('myFunction3');
+
+    // namespace off-line
+    Logger.ns('MY_MODULE').inactive();
+    Logger.ns('MY_MODULE').log('myFunction4');
+
+    // namespace on-line again
+    Logger.ns('MY_MODULE').active();
+    Logger.ns('MY_MODULE').log('myFunction5');
+
+
+    Logger.inactive();
+    Logger.info('Inactive all logs');
+
+    Logger.active();
+    Logger.info('Active all logs again');
+
+</script>
+
+</body>
+</html>
