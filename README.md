@@ -33,12 +33,27 @@ Logger.ns('MY_MODULE').inactive();
 Logger.ns('MY_MODULE').active();
 ```
 
-# Inactive all logs
+## Inactive all logs
 ```js
 Logger.inactive();
 ```
 
-# Active all logs
+## Active all logs
 ```js
 Logger.active();
 ```
+
+## Requirements
+None
+
+## Browser compatibility
+
+Internet Explorer 9+
+Firefox
+Chrome
+
+##License
+
+MIT License (MIT)
+
+http://opensource.org/licenses/MIT
