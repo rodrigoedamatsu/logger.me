@@ -9,10 +9,10 @@ logger.js helps you centralize and gain full control of your logs around the app
 None. Just plain old Javascript ;)
 
 ## Installation
-
 ```bash
-npm install -g logger-js
+Coming soon
 ```
+
 ## Usage
 
 ### Types of logs
@@ -62,6 +62,6 @@ Using namespaces you can group your logs together, making it very easy to manage
 - Firefox
 - Chrome
 
-## License
+### License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
