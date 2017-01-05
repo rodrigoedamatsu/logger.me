@@ -1,22 +1,24 @@
-/***
- * @module   Logger
+/**
+ * @desc        logger.js helps you centralize and gain full control of your logs around the application.
+ * @module      Logger
+ * @version     v1.1.0
  *
- * @author rodrigo.edamatsu@mstech.com.br
+ * @requires    console
+ *
+ * @author https://github.com/rodrigoedamatsu
  */
-;(function () {
+;(function (console) {
     'use strict';
 
     var Logger = {};
-
     var currNamespace;
-
-    window.config = {
+    var config = {
         debug: true,
         namespace: {}
     };
 
     /**
-     *
+     * Define a configuração externalmente
      * @param _config
      */
     Logger.config = function (_config) {
@@ -27,79 +29,106 @@
     };
 
     /**
-     *
+     * Cria um log com ou sem namespace
      */
     Logger.log = function log() {
-        canShowDebug() && console.log.apply(console, arguments);
+        canShowDebug() && console.log.apply(console, setArguments.apply(this, arguments));
         currNamespace = null;
     };
 
     /**
-     *
+     * Cria um warn com ou sem namespace
      */
     Logger.warn = function warn() {
-        canShowDebug() && console.warn.apply(console, arguments);
+        canShowDebug() && console.warn.apply(console, setArguments.apply(this, arguments));
+        currNamespace = null;
     };
 
     /**
-     *
+     * Cria um info com ou sem namespace
      */
     Logger.info = function info() {
-        canShowDebug() && console.info.apply(console, arguments);
+        canShowDebug() && console.info.apply(console, setArguments.apply(this, arguments));
+        currNamespace = null;
     };
 
     /**
-     *
+     * Cria um error com ou sem namespace
      */
     Logger.error = function error() {
-        canShowDebug() && console.error.apply(console, arguments);
+        canShowDebug() && console.error.apply(console, setArguments.apply(this, arguments));
+        currNamespace = null;
     };
 
     /**
-     * Create namespace for debug
+     * Defini e cria o namespace
+     * @param {String} _ns  namespace
      */
     Logger.ns = function namespace(_ns) {
-
         if (config.namespace) {
             config.namespace[_ns] = config.namespace[_ns] || {debug: true};
-            currNamespace = config.namespace[_ns];
+            currNamespace = _ns;
             expirationNamespaceSelected();
             return this;
         }
     };
 
+    /**
+     * Ativa o log global ou de um namespace específico
+     */
     Logger.active = function () {
-        if (currNamespace) {
-            currNamespace.debug = true;
-        } else {
-            config.debug = true;
-        }
+        toggleDebug(true);
     };
 
+    /**
+     * Desativa o log global ou de um namespace específico
+     */
     Logger.inactive = function () {
-        if (currNamespace) {
-            currNamespace.debug = false;
-        } else {
-            config.debug = false;
-        }
+        toggleDebug(false)
     };
+
+    /**
+     * Ativa e desativa os logs do namescpae ou de todos os logs
+     * @param _status
+     */
+    function toggleDebug(_status) {
+        if (currNamespace) {
+            config.namespace[currNamespace].debug = _status;
+        } else {
+            config.debug = _status;
+        }
+    }
+
+    /**
+     * Reconstrói os argumentos caso tenha namespace
+     * @returns {*}
+     */
+    function setArguments() {
+        var arg = Array.prototype.slice.call(arguments);
+
+        if (currNamespace) {
+            arg.unshift(('@' + currNamespace + ':'));
+        }
+
+        return arg;
+    }
 
     /**
      * Rule: O namespace selecionado é zerado caso não tenha um método chain utilizando
      */
-    function expirationNamespaceSelected () {
+    function expirationNamespaceSelected() {
         setTimeout(function () {
             currNamespace = null
-        }, 100);
+        }, 0);
     }
 
     /**
-     * Rule: Se o debug geral estiver ativo e se estiver acessando por namespace deve também estar ativo
+     * Rule: Poderá exibir os logs - SE o debug geral estiver ativo E se estiver acessando algum namespace, deverá também estar ativo
      * @returns {boolean|*}
      */
     function canShowDebug() {
-        return config.debug && ((currNamespace && currNamespace.debug) || !currNamespace);
+        return config.debug && ((currNamespace && config.namespace[currNamespace].debug) || !currNamespace);
     }
 
     window.Logger = Logger;
-})();
+})(console);
