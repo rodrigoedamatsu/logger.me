@@ -5,3 +5,4 @@ node_modules/
 
 # files
 *.min.js
+*.log
