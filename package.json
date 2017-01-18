@@ -1,6 +1,6 @@
 {
   "name": "logger.js",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "helps you centralize and gain full control of your logs around the application.",
   "main": "src/loggerjs/logger.js",
   "scripts": {
