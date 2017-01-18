@@ -10,7 +10,7 @@ None. Just plain old Javascript ;)
 
 ## Installation
 ```bash
-Coming soon
+    npm install insights-logger.js
 ```
 
 ## Usage
