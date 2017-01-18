@@ -1,0 +1,29 @@
+{
+  "name": "logger.js",
+  "version": "1.2.0",
+  "description": "helps you centralize and gain full control of your logs around the application.",
+  "main": "src/loggerjs/logger.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodrigoedamatsu/logger.js.git"
+  },
+  "keywords": [
+    "logs",
+    "debug"
+  ],
+  "author": "https://github.com/rodrigoedamatsu",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/rodrigoedamatsu/logger.js/issues"
+  },
+  "homepage": "https://github.com/rodrigoedamatsu/logger.js#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "load-grunt-tasks": "^3.5.2"
+  }
+}
