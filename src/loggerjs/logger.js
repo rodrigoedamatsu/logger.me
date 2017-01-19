@@ -1,7 +1,7 @@
 /**
  * @desc        logger.me helps you centralize and gain full control of your logs around the application.
  * @module      Logger
- * @version     v1.1.0
+ * @version     v1.2.5
  *
  * @requires    console
  *
@@ -114,7 +114,7 @@
     }
 
     /**
-     * Rule: O namespace selecionado é zerado caso não tenha um método chain utilizando
+     * Rule: O namespace selecionado é zerado caso não tenha um método chain utilizando-o
      */
     function expirationNamespaceSelected() {
         setTimeout(function () {
