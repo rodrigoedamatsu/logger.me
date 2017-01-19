@@ -1,5 +1,5 @@
 /**
- * @desc        logger.js helps you centralize and gain full control of your logs around the application.
+ * @desc        logger.me helps you centralize and gain full control of your logs around the application.
  * @module      Logger
  * @version     v1.1.0
  *
@@ -18,7 +18,7 @@
     };
 
     /**
-     * Define a configuração externalmente
+     * Define a configuração externamente
      * @param _config
      */
     Logger.config = function (_config) {
