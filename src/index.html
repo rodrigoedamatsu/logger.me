@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Logger.JS</title>
+    <title>logger.me</title>
 </head>
 <body>
 
@@ -17,8 +17,9 @@
     Logger.error('Test with error');
 
     // send params
-    Logger.log('One param', 'String');
-    Logger.log('Many params', 'String', 1, true, {test: 'logger'}, function () {});
+    Logger.log('One param');
+    Logger.log('Many params', 'String', 1, true, {test: 'logger'}, function () {
+    });
 
     // create and use namespace
     Logger.ns('MY_MODULE').log('myFunction1');
@@ -33,14 +34,11 @@
     Logger.ns('MY_MODULE').active();
     Logger.ns('MY_MODULE').log('myFunction5');
 
-
     Logger.inactive();
     Logger.info('Inactive all logs');
 
     Logger.active();
     Logger.info('Active all logs again');
-
 </script>
-
 </body>
 </html>
