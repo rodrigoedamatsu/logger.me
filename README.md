@@ -1,6 +1,6 @@
 # logger.me
 
-Tired of console.log pain in your applications? Look no further. logger.js is a simple to use and lightweight vanilla js wrapper around the old console.log.
+Tired of console.log pain in your applications? Look no further. logger.me is a simple to use and lightweight vanilla js wrapper around the old console.log.
 
 logger.me helps you centralize and gain full control of your logs around the application.
 
